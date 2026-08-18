@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
 fun UtahAIApp(vm: UtahAiViewModel = viewModel()) {
     val messages by vm.messages.collectAsState()
     val loading by vm.loading.collectAsState()
