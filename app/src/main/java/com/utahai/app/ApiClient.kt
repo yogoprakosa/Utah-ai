@@ -8,8 +8,8 @@ import java.net.URL
 
 object ApiClient {
     // Production: replace with your HTTPS Utah AI backend.
-    // Emulator default is http://10.0.2.2:3000
-    private const val BASE_URL = "http://10.0.2.2:3000"
+    // Emulator default is https://utah-ai-backend.yogo-prakosa.workers.dev
+    private const val BASE_URL = "https://utah-ai-backend.yogo-prakosa.workers.dev"
 
     suspend fun chat(message: String): Result<String> = withContext(Dispatchers.IO) {
         try {
