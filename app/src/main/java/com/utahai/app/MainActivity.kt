@@ -31,6 +31,7 @@ fun UtahAIApp(vm: UtahAiViewModel = viewModel()) {
     val messages by vm.messages.collectAsState()
     val loading by vm.loading.collectAsState()
     var input by remember { mutableStateOf("") }
+    var menuOpen by remember { mutableStateOf(false) }
 
     MaterialTheme {
         Scaffold(
@@ -42,11 +43,25 @@ fun UtahAIApp(vm: UtahAiViewModel = viewModel()) {
                             Text("AI Assistant", fontSize = 11.sp)
                         }
                     },
-                    navigationIcon = {
-                        IconButton(onClick = {}) { Icon(Icons.Default.Menu, "Menu") }
+                navigationIcon = {
+                    IconButton(
+                        onClick = { menuOpen = !menuOpen }
+                    ) {
+                        Icon(
+                            Icons.Default.Menu,
+                            contentDescription = "Menu"
+                        )
                     }
-                )
-            }
+                    androidx.compose.material3.DropdownMenu(
+                        expanded = menuOpen,
+                        onDismissRequest = { menuOpen = false }
+                    ) {
+                        androidx.compose.material3.DropdownMenuItem(
+                            text = { Text("Chat Baru") },
+                            onClick = { menuOpen = false }
+                        )
+                    }
+                }
         ) { padding ->
             Column(
                 Modifier.fillMaxSize().padding(padding).padding(horizontal = 16.dp)
