@@ -81,7 +81,7 @@ fun UtahAIApp(vm: UtahAiViewModel = viewModel()) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     IconButton(onClick = {}, modifier = Modifier.size(52.dp)) {
-                        Icon(Icons.Default.Mic, "Bicara")
+                        Icon(Icons.Filled.Mic, "Bicara")
                     }
                     OutlinedTextField(
                         value = input,
